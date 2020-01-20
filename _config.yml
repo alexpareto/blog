@@ -21,13 +21,13 @@
 title: "@alexpareto"
 email: alex@alexpareto.com
 description: >-
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Hey! My name's Alex. I work on engineering at NTWRK. I'm based in LA. 
+  I write here mostly about software and startups. 
+  Previously I founded Demeanor (Y Combinator S18) which was acquired by NTWRK in 2019. 
+  Before that, I worked on the video platform at Facebook. I studied at USC and Andover.
 baseurl: "/"
-url: "http://alexpareto.com"
-twitter_username: alexpareto
-github_username: alexpareto
+url: "https://alexpareto.com"
+google_analytics: "UA-72564929-2"
 
 # Build settings
 theme: minima

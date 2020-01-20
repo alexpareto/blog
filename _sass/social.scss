@@ -1,0 +1,110 @@
+/* Social Icons */
+.social-icons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.social-icons li {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  margin: 5px;
+}
+
+.linkedin {
+  background-image: url("/assets/social_icons/LinkedIn-black.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: all 0.3s ease;
+}
+
+.linkedin:hover {
+  background-image: url("/assets/social_icons/LinkedIn-color.svg");
+}
+
+.facebook {
+  background-image: url("/assets/social_icons/Facebook-black.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: all 0.3s ease;
+}
+
+.facebook:hover {
+  background-image: url("/assets/social_icons/Facebook-color.svg");
+}
+
+.twitter {
+  background-image: url("/assets/social_icons/Twitter-black.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: all 0.3s ease;
+}
+
+.twitter:hover {
+  background-image: url("/assets/social_icons/Twitter-color.svg");
+}
+
+.github {
+  background-image: url("/assets/social_icons/Github-black.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: all 0.3s ease;
+}
+
+.github:hover {
+  background-image: url("/assets/social_icons/Github-color.svg");
+}
+
+.googleplus {
+  background-image: url("/assets/social_icons/GooglePlus-black.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: all 0.3s ease;
+}
+
+.googleplus:hover {
+  background-image: url("/assets/social_icons/GooglePlus-color.svg");
+}
+
+.instagram {
+  background-image: url("/assets/social_icons/Instagram-black.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: all 0.3s ease;
+}
+
+.instagram:hover {
+  background-image: url("/assets/social_icons/Instagram-color.svg");
+}
+
+.spotify {
+  background-image: url("/assets/social_icons/Spotify-black.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: all 0.3s ease;
+}
+
+.spotify:hover {
+  background-image: url("/assets/social_icons/Spotify-color.svg");
+}
+
+.snapchat {
+  background-image: url("/assets/social_icons/Snapchat-black.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: all 0.3s ease;
+}
+
+.snapchat:hover {
+  background-image: url("/assets/social_icons/Snapchat-color.svg");
+}

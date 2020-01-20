@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if page.title -%}
+  <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%} {{ content }}
+  <div class="row">
+    <div class="eight columns">
+      <p>
+        <a
+          href="https://twitter.com/alexpareto?ref_src=twsrc%5Etfw"
+          class="twitter-follow-button"
+          data-size="large"
+          data-show-count="false"
+          >Follow @alexpareto</a
+        >
+      </p>
+      <div class="intro">
+        {%- include about.html -%}
+      </div>
+    </div>
+  </div>
+  {%- if site.posts.size > 0 -%}
+  <h5>Posts</h5>
+  <ul class="post-list">
+    {%- for post in site.posts -%}
+    <li>
+      <div>
+        <a class="post-link" href="{{ post.url | relative_url }}">
+          {{ post.title | escape }}
+        </a>
+      </div>
+      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y"
+      -%}
+      <span class="post-meta">{{ post.date | date: date_format }}</span>
+      {%- if site.show_excerpts -%} {{ post.excerpt }} {%- endif -%}
+    </li>
+    {%- endfor -%}
+  </ul>
+  {%- endif -%}
+</div>

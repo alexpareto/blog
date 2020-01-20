@@ -25,6 +25,14 @@
   background-image: url("/assets/social_icons/LinkedIn-color.svg");
 }
 
+.rss {
+  background-image: url("/assets/social_icons/rss.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: all 0.3s ease;
+}
+
 .facebook {
   background-image: url("/assets/social_icons/Facebook-black.svg");
   background-size: contain;

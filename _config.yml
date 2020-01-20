@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: "@alexpareto"
+title: "Alex Pareto - @alexpareto"
 email: alex@alexpareto.com
 description: >-
   Hey! My name's Alex. I work on engineering at NTWRK. I'm based in LA. 

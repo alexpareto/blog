@@ -20,6 +20,7 @@
 
 title: "Alex Pareto"
 email: alex@alexpareto.com
+tagline: hello
 description: >-
   Hey! My name's Alex. I work on engineering at NTWRK. I'm based in LA. 
   I write here mostly about software and startups. 
@@ -27,7 +28,6 @@ description: >-
   Before that, I worked on the video platform at Facebook. I studied at USC and Andover.
 baseurl: "/"
 url: "https://alexpareto.com"
-tagline: "@alexpareto"
 google_analytics: "UA-72564929-2"
 
 # Build settings

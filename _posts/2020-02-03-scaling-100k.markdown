@@ -41,7 +41,7 @@ Lucky for us, our first few users love Graminsta. Now that traffic is starting t
 
 This is why I like to think of the client as separate from the API. It makes it very easy to reason about building for multiple platforms: web, mobile web, iOS, Android, desktop apps, third party services etc. They're all just clients consuming the same API.
 
-In that same vein, the biggest feedback we're getting from users is that they want Graminsta on their phones. So we're going to launch a mobile app while we're at it.
+In the same vein, the biggest feedback we're getting from users is that they want Graminsta on their phones. So we're going to launch a mobile app while we're at it.
 
 Here's what the system looks like now:
 
@@ -55,7 +55,7 @@ Load balancers are very powerful. The key idea is that we place a load balancer 
 
 We're going to place a separate load balancer in front of our web client and our API. This means we can have multiple instances running our API and web client code. The load balancer will route requests to whichever instance has the least traffic.
 
-What we also get out of this is redundancy. This means that when one instance goes down (maybe it gets overloaded or crashes), then we have other instances still up to respond to incoming requests - instead of the whole system going down.
+What we also get out of this is redundancy. When one instance goes down (maybe it gets overloaded or crashes), then we have other instances still up to respond to incoming requests - instead of the whole system going down.
 
 A load balancer also enables autoscaling. We can set up our load balancer to increase the number of instances during the Superbowl when everyone is online and decrease the number of instances when all of our users are asleep.
 
@@ -63,7 +63,7 @@ With a load balancer, our API layer can scale to practically infinity, we will j
 
 ![/assets/Scaling%20to%20100k%20Users/Screen_Shot_2020-01-21_at_8.25.50_AM.png](/assets/Scaling%20to%20100k%20Users/Screen_Shot_2020-01-21_at_8.25.50_AM.png)
 
-> Side note: At this point what we have so far is very similar to what companies like Heroku provide out of the box (and why they're so popular). Heroku puts the database on a separate host, manages a load balancer with autoscaling, and lets you host your web client separately from your API. This is a great reason to use a service like Heroku for projects or early stage startups - all of the necessary basics come out of the box.
+> Side note: At this point what we have so far is very similar to what PaaS companies like Heroku or AWS's Elastic Beanstalk provide out of the box (and why they're so popular). Heroku puts the database on a separate host, manages a load balancer with autoscaling, and lets you host your web client separately from your API. This is a great reason to use a service like Heroku for projects or early stage startups - all of the necessary basics come out of the box.
 
 ## 10,000 Users: CDN
 
@@ -71,9 +71,9 @@ We probably should have done this from the beginning, but we're moving fast here
 
 We should be using a cloud storage service to host static content at this point: think images, videos, and more (AWS's S3 or Digital Ocean's Spaces). In general, our API should avoid handling things like serving images and image uploads.
 
-The other thing we get out of a cloud storage service is a CDN (in AWS this is an add-on called Cloudfront, but many bucket services offer it out of the box). A CDN will automatically cache our images at different data centers throughout the world.
+The other thing we get out of a cloud storage service is a CDN (in AWS this is an add-on called Cloudfront, but many cloud storage services offer it out of the box). A CDN will automatically cache our images at different data centers throughout the world.
 
-While our main data center may be hosted in Ohio, if someone requests an image from Japan, our cloud provider will make a copy and store it at their data center in Japan. The next person to request that image in Japan will then have it served much faster. This is important when we need to serve larger file sizes like images or videos that take a long time to load + send across the world.
+While our main data center may be hosted in Ohio, if someone requests an image from Japan, our cloud provider will make a copy and store it at their data center in Japan. The next person to request that image in Japan will then recieve it much faster. This is important when we need to serve larger file sizes like images or videos that take a long time to load + send across the world.
 
 ![/assets/Scaling%20to%20100k%20Users/Screen_Shot_2020-01-21_at_8.30.06_AM.png](/assets/Scaling%20to%20100k%20Users/Screen_Shot_2020-01-21_at_8.30.06_AM.png)
 
@@ -113,7 +113,7 @@ As the app continues to scale, we're going to want to focus on splitting out ser
 
 We're also going to continue to bump up against limitations on the data layer. This is when we are going to want to start looking into partitioning and sharding the database. These both require more overhead, but effectively allow the data layer to scale infinitely.
 
-We will want to make sure that we have monitoring installed using a service like New Relic or Datadog. This will ensure we understand what requests are slow and where improvement needs to be made. As we scale we will want to constantly be focused on finding bottlenecks and fixing them - often by taking advantage of some of the ideas in the previous sections.
+We will want to make sure that we have monitoring installed using a service like New Relic or Datadog. This will ensure we understand what requests are slow and where improvement needs to be made. As we scale we will want to be focused on finding bottlenecks and fixing them - often by taking advantage of some of the ideas in the previous sections.
 
 Hopefully at this point, we have some other people on the team to help out as well!
 

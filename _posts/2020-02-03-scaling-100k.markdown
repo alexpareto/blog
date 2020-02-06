@@ -37,7 +37,7 @@ Here's what the Graminsta system looks like now:
 
 ## 100 Users: Split Out the Clients
 
-Lucky for us, our first few users love Graminsta. Now that traffic is starting to get more steady, it's time to split out the client. One thing to note is that **splitting out** entities is a key aspect of building a scalable application. As one part of the system gets more traffic, we can split it out so that we can handle scaling the service based on it's own specific traffic patterns.
+Lucky for us, our first few users love Graminsta. Now that traffic is starting to get more steady, it's time to split out the client. One thing to note is that **splitting out** entities is a key aspect of building a scalable application. As one part of the system gets more traffic, we can split it out so that we can handle scaling the service based on its own specific traffic patterns.
 
 This is why I like to think of the client as separate from the API. It makes it very easy to reason about building for multiple platforms: web, mobile web, iOS, Android, desktop apps, third party services etc. They're all just clients consuming the same API.
 

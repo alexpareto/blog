@@ -124,3 +124,6 @@ This post was inspired by one of [my favorite posts on High Scalability](http://
 #### Footnotes
 
 [^1]: While similar in terms of allowing us to spread load across multiple instances, the underlying implementation of Redis Cluster is much different than a load balancer.
+
+#### More
+- Readers have kindly translated this post into [Chinese](https://www.infoq.cn/article/Tyx5HwaD9OKNX4xzFaFo) and [Korean](https://leonkim.dev/systems/scaling-100k/). 

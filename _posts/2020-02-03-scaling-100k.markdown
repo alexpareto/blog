@@ -121,9 +121,9 @@ Hopefully at this point, we have some other people on the team to help out as we
 
 This post was inspired by one of [my favorite posts on High Scalability](http://highscalability.com/blog/2016/1/11/a-beginners-guide-to-scaling-to-11-million-users-on-amazons.html). I wanted to flesh the article out a bit more for the early stages and make it a bit more cloud agnostic. Definitely check it out if you're interested in these kind of things.
 
+#### Translations
+- Readers have kindly translated this post into [Chinese](https://www.infoq.cn/article/Tyx5HwaD9OKNX4xzFaFo) and [Korean](https://leonkim.dev/systems/scaling-100k/). 
+
 #### Footnotes
 
 [^1]: While similar in terms of allowing us to spread load across multiple instances, the underlying implementation of Redis Cluster is much different than a load balancer.
-
-#### More
-- Readers have kindly translated this post into [Chinese](https://www.infoq.cn/article/Tyx5HwaD9OKNX4xzFaFo) and [Korean](https://leonkim.dev/systems/scaling-100k/). 

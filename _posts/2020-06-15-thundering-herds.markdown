@@ -63,7 +63,7 @@ Using something like Redis or Memcached to solve this problem would look like th
 3. If the lock is acquired, then recalculate the data and refill the cache.
 4. If the lock is not acquired, wait for the lock to be available again and check if the cache has been filled - if it has, another request has already done the recalculation! Return that data.
 
-A queue is another popular way to tackle this problem.
+A queue is another popular way to tackle this problem. See the resources below for ideas there.
 
 ## Conclusion
 

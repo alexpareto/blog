@@ -46,7 +46,7 @@ Using a cache like Redis or Memcached, this would look something like the follow
 2. In this key, store both the data and the _real_ cache expire time.
 3. On fetching the key, check the _real_ expire time. If it has expired:
    1. Update the real expire key to be in the future (this will prevent other requests from attempting to recalculate the data).
-   2. Recalculate the data and then update the key with the latest data, so all subsequent requests will get the latest data
+   2. Recalculate the data and then update the key with the latest data, so all subsequent requests will get the latest data.
 
 If possible, the read and update steps should be done in an atomic way. This will prevent any other request from recalculating the data at the same time.
 
@@ -58,9 +58,9 @@ We can also have the other requests wait for the latest data from the request. T
 
 Using something like Redis or Memcached to solve this problem would look like the following:
 
-1. Attempt to get a key from the cache
-2. If key is not there, then attempt to acquire a lock on the data with the Redis key as the lock name (one option here is to use a distributed lock with multiple servers)
-3. If the lock is acquired, then recalculate the data and refill the cache
+1. Attempt to get a key from the cache.
+2. If key is not there, then attempt to acquire a lock on the data with the Redis key as the lock name (one option here is to use a distributed lock with multiple servers).
+3. If the lock is acquired, then recalculate the data and refill the cache.
 4. If the lock is not acquired, wait for the lock to be available again and check if the cache has been filled - if it has, another request has already done the recalculation! Return that data.
 
 A queue is another popular way to tackle this problem.

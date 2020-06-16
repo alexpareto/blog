@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Dealing with spiky traffic and thundering herds"
-published: false
+published: true
 ---
 
 ![/assets/spiky_traffic.png](/assets/spiky_traffic.png)

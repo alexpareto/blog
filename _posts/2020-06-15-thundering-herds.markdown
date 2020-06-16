@@ -6,25 +6,24 @@ published: true
 
 ![/assets/spiky_traffic.png](/assets/spiky_traffic.png)
 
-The graph above is a concurrent user count screenshot taken over the course of a few minutes. There's a few ways to look at it. The first is excitement: more users! This feeling usually lasts until the infrastructure comes crashing down to reality. At that point the feeling of excitement might be replaced with panic. How do we keep the servers from collapsing if this keeps happening?
+The graph above is a concurrent user count screenshot taken over the course of a few minutes. We can look at it in a couple ways. The first is excitement: more users! This feeling usually lasts until the infrastructure comes crashing down to reality. At that point the feeling of excitement might be replaced with panic. How do we keep the servers from collapsing if this keeps happening?
 
-Dealing with a 10-100x increase in traffic is hard - especially if you run an app where spikes are a frequent occurrence. With the advent of push notifications and live streaming, these traffic patterns are becoming more and more common. This pattern is called a thundering herd: users stampede your services - often taking down everything in their path.
+Dealing with a 10-100x increase in users is hard - especially if you run an app where spikes are a frequent occurrence. With the advent of push notifications and live streaming these traffic patterns are becoming more and more common. This is a thundering herd: users stampede your services - often taking down everything in their path.
 
-The first thing that goes down is usually the database, thousands of queries hit the database at once, triggering a massive slow down. It's not uncommon for the database CPU graph to look just like the graph above. When the database slows down, requests start timing out. Timeouts and long requests overload the application servers. Soon everything is falling over. Not good.
+The first thing that goes down is usually the database. Thousands of queries hit the database at once and trigger a massive slow down. It's not uncommon for the database CPU graph to look just like the graph above. When the database slows down, requests start timing out. Timeouts and long requests overload the application servers. Soon everything is falling over. Not good.
 
 We need to stop the herd (or at least slow it down). This brings us to step one:
 
 ## Cache Liberally
 
-When load on the database is spiking from a slow or frequently used query, the easiest way to fix it is to throw this data in the cache. You'll want to set a reasonable expire time. You can use a tool like Redis for this - or take it one step further and cache it on the edge using a CDN like Cloudflare or Cloudfront.
+When load on the database is spiking from a slow or frequently used query, the easiest way to solve the issue is to throw the data in a cache. You'll want to set a reasonable expiry time. You can use a tool like Redis for this - or take it one step further and cache the data on the edge using a CDN like Cloudflare or Cloudfront.
 
-The advantage of a CDN is that the request will never hit your service - even when traffic increases by 100x, your service will hum along as if nothing changed.
+The advantage of a CDN is that the request will never hit your service. Even when traffic increases by 100x your service will hum along as if nothing changed.
 
 For many services, using a cache will be enough. But for others, the thundering herd results in so many concurrent users that when the cache expires, we end up with the same problem all over again.
 
 ![/assets/thundering_herd.gif](/assets/thundering_herd.gif)
-
-Source: Facebook Engineering, Solving the thundering herd problem
+GIF Source: Facebook Engineering, Solving the thundering herd problem
 
 Since there are so many concurrent users, for every cache miss that occurs, all requests will be let through during the time that the cache value is being recalculated. The underlying service will collapse in response to this.
 
@@ -32,7 +31,7 @@ So how do we stop all these requests from coming through?
 
 ## We need to close the gate
 
-Clearly our underlying server cannot handle this much traffic - so we need to "close the gate" and not let the requests in. Of course, this alone won't work. We still need to serve something!
+Clearly our underlying server cannot handle this much traffic. We need to "close the gate" and not let the requests in. Of course, this alone won't work. We still need to serve something!
 
 The key insight here is that every request is asking for the same data. Instead of letting them all through the gate, let's **only allow _one_ request through to recalculate the data**. After all, the data will be the same for every request.
 
@@ -50,15 +49,14 @@ Using a cache like Redis or Memcached, this would look something like the follow
    1. Update the real expire key to be in the future (this will prevent other requests from attempting to recalculate the data).
    2. Recalculate the data and then update the key with the latest data, so all subsequent requests will get the latest data
 
-If possible, the read and update steps should be done in an atomic way - this will prevent any other request from also recalculating the data at the same time.
+If possible, the read and update steps should be done in an atomic way. This will prevent any other request from recalculating the data at the same time.
 
 ## Option 2: Have the others wait for the latest data
 
 We can also have the other requests wait for the latest data from the request. This is called request coalescing or request collapsing. Many CDN providers have this functionality built in (often in advanced settings).
 
 ![/assets/coalesced_herd.gif](/assets/coalesced_herd.gif)
-
-Source: Facebook Engineering, Solving the thundering herd problem
+GIF Source: Facebook Engineering, Solving the thundering herd problem
 
 Using something like Redis or Memcached to solve this problem would look like the following:
 

@@ -16,9 +16,9 @@ We need to stop the herd (or at least slow it down). This brings us to step one:
 
 ## Cache Liberally
 
-When load on the database is spiking from a slow or frequently used query, the easiest way to solve the issue is to throw the data in a cache. You'll want to set a reasonable expiry time. You can use a tool like Redis for this - or take it one step further and cache the data on the edge using a CDN like Cloudflare or Cloudfront.
+When load on the database is spiking from a slow or frequently used query, the easiest way to solve the issue is to throw the data in a cache. We can use a tool like Redis for this - or take it one step further and cache the data on the edge using a CDN like Cloudflare or Cloudfront.
 
-The advantage of a CDN is that the request will never hit your service. Even when traffic increases by 100x your service will hum along as if nothing changed.
+The advantage of a CDN is that the request will never hit our service. Even when traffic increases by 100x our service will hum along as if nothing changed.
 
 For many services, using a cache will be enough. But for others, the thundering herd results in so many concurrent users that when the cache expires, we end up with the same problem all over again.
 

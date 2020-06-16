@@ -28,7 +28,7 @@ Since there are so many concurrent users, for every cache miss that occurs, all 
 
 So how do we stop all these requests from coming through?
 
-## We need to close the gate
+## We Need to Close the Gate
 
 Clearly our underlying server cannot handle this much traffic. We need to "close the gate" and not let the requests in. Of course, this alone won't work. We still need to serve something!
 
@@ -36,7 +36,7 @@ The key insight here is that every request is asking for the same data. Instead 
 
 Now, what do we do with all the other requests?
 
-### Option 1: Serve the others stale data
+### Option 1: Serve the Others Stale Data
 
 Serving stale data has the advantage of being relatively simple and fast. The idea here is that we serve the old data in the cache while we're recalculating the current up-to-date data.
 
@@ -50,7 +50,7 @@ Using a cache like Redis or Memcached, this would look something like the follow
 
 If possible, the read and update steps should be done in an atomic way. This will prevent any other request from recalculating the data at the same time.
 
-### Option 2: Have the others wait for the latest data
+### Option 2: Have the Others Wait for the Latest Data
 
 We can also have the other requests wait for the latest data from the request. This is called request coalescing or request collapsing. Many CDN providers have this functionality built in (often in advanced settings).
 

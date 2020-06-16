@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Dealing with spiky traffic and thundering herds"
+title: "Dealing With Spiky Traffic and Thundering Herds"
 published: true
 ---
 
@@ -23,7 +23,6 @@ The advantage of a CDN is that the request will never hit your service. Even whe
 For many services, using a cache will be enough. But for others, the thundering herd results in so many concurrent users that when the cache expires, we end up with the same problem all over again.
 
 ![/assets/thundering_herd.gif](/assets/thundering_herd.gif)
-GIF Source: Facebook Engineering, Solving the thundering herd problem
 
 Since there are so many concurrent users, for every cache miss that occurs, all requests will be let through during the time that the cache value is being recalculated. The underlying service will collapse in response to this.
 
@@ -33,7 +32,7 @@ So how do we stop all these requests from coming through?
 
 Clearly our underlying server cannot handle this much traffic. We need to "close the gate" and not let the requests in. Of course, this alone won't work. We still need to serve something!
 
-The key insight here is that every request is asking for the same data. Instead of letting them all through the gate, let's **only allow _one_ request through to recalculate the data**. After all, the data will be the same for every request.
+The key insight here is that every request is asking for the same data. Instead of letting them all through the gate, let's only allow _one_ request through to recalculate the data. After all, the data will be the same for every request.
 
 Now, what do we do with all the other requests?
 
@@ -51,12 +50,11 @@ Using a cache like Redis or Memcached, this would look something like the follow
 
 If possible, the read and update steps should be done in an atomic way. This will prevent any other request from recalculating the data at the same time.
 
-## Option 2: Have the others wait for the latest data
+### Option 2: Have the others wait for the latest data
 
 We can also have the other requests wait for the latest data from the request. This is called request coalescing or request collapsing. Many CDN providers have this functionality built in (often in advanced settings).
 
 ![/assets/coalesced_herd.gif](/assets/coalesced_herd.gif)
-GIF Source: Facebook Engineering, Solving the thundering herd problem
 
 Using something like Redis or Memcached to solve this problem would look like the following:
 
@@ -73,7 +71,7 @@ And with that, the requests are satisfied! Next time a massive spike in traffic 
 
 That is, until we have to deal with data that can't be cached globally... perhaps that's a problem for another day.
 
-### Resources
+## Resources
 
 Source for GIFs on this Page: [Video from Facebook Engineering on Thundering Herds](https://www.facebook.com/watch/?v=10153675295382200)
 

@@ -4,7 +4,7 @@ title: "Choosing a Tech Stack"
 published: true
 ---
 
-The best tech stack for a startup is the one that lets your team be the most productive. We get a lot of things with productivity: we can ship more, find product market fit faster, avoid running out of runway, and be happier.
+The best tech stack for a startup is the one that lets our team be the most productive. We get a lot of things with productivity: we can ship more, find product market fit faster, avoid running out of runway, and be happier.
 
 So what’s the framework for choosing a tech stack that we can be productive with? After spending some time thinking about the common themes in past choices, I came up with a framework to use when making these decisions. It's detailed below (and is still evolving).
 

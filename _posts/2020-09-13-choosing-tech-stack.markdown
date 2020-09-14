@@ -51,8 +51,6 @@ Following the leaders means that the stack is in use by other companies in the i
 
 [StackShare](https://stackshare.io/) is a good source to find information about what technologies are in use by various startups and larger companies. The other place would be companies' careers pages (see what technology they look for in hiring). 
 
-Some of my more recent favorites: Brex (Elixir/Postgres/React), Notion (Node/Postgres/React), Retool (Node/Postgres/React).
-
 ---
 
 I'd love to hear thoughts on this, especially if others have useful guidelines that are missing. Shoot me an email (hey@alexpareto.com) or find me on Twitter @alexpareto. 

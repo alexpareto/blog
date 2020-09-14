@@ -55,6 +55,6 @@ Some of my more recent favorites: Brex (Elixir/Postgres/React), Notion (Node/Pos
 
 If we have a tech stack that satisfies the above, we'll be in a great position to start shipping, iterating, and talking to customers. 
 
-I'd love to hear thoughts on this, especially if others have useful guidelines that are missing. Shoot me an email (hey@alexpareto.com) or find me on Twitter @alexpareto. 
+---
 
-*Note: Keep in mind, this framework is for businesses. For a side project, often times choosing a language you want to work with (fun) or learn more about is far more important than, for example, being able to hire for it.*
+I'd love to hear thoughts on this, especially if others have useful guidelines that are missing. Shoot me an email (hey@alexpareto.com) or find me on Twitter @alexpareto. 

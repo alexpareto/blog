@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Choosing a tech stack"
+title: "Choosing a Tech Stack"
 published: true
 ---
 

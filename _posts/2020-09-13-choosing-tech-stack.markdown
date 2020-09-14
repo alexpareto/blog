@@ -53,8 +53,6 @@ Following the leaders means that the stack is in use by other companies in the i
 
 Some of my more recent favorites: Brex (Elixir/Postgres/React), Notion (Node/Postgres/React), Retool (Node/Postgres/React).
 
-If we have a tech stack that satisfies the above, we'll be in a great position to start shipping, iterating, and talking to customers. 
-
 ---
 
 I'd love to hear thoughts on this, especially if others have useful guidelines that are missing. Shoot me an email (hey@alexpareto.com) or find me on Twitter @alexpareto. 
